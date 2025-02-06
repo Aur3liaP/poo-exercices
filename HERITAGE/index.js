@@ -36,3 +36,38 @@
 // Créez une sous-classe Teacher qui hérite de Person et ajoute une propriété subject et une méthode introduce (qui reprend celle de person et) qui inclut le sujet enseigné.
 // Créez une sous-classe Student qui hérite de Person et ajoute une propriété grade et une méthode introduce qui inclut le grade (année scolaire).
 // Créez des instances de Teacher et Student et appelez leur méthode introduce.
+
+class Person {
+    constructor (name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    getIntroduce() {
+        return `Hi my name is ${this.name} and i'm ${this.age} yo.`
+    }
+}
+class Teacher extends Person {
+    constructor (name, age, subject) {
+        super(name, age);
+        this.subject = subject;
+    }
+    getIntroduce() {
+        return `Hi my name is ${this.name}, i'm ${this.age} yo and I teach ${this.subject}.`
+    }
+}
+
+class Student extends Person {
+    constructor (name, age, grade) {
+        super(name, age);
+        this.grade = grade;
+    }
+    getIntroduce() {
+       return `Hi my name is ${this.name}, i'm ${this.age} yo and i'm in grade ${this.grade}.`
+    }
+}
+
+const martin = new Teacher ('Martin', 42, 'Javascript');
+const marie = new Student ('Marie', 17, 2);
+
+console.log(martin.getIntroduce());
+console.log(marie.getIntroduce());
