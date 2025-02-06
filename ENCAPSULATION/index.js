@@ -17,3 +17,31 @@
 // Ajoutez une méthode getBalance pour afficher le solde.
 // Utilisez des symboles (#) pour indiquer les propriétés privées.
 
+class BankAccount {
+    #balance;
+    #accountNumber;
+
+    constructor (accountNumber, initialBalance) {
+        this.#accountNumber = accountNumber;
+        this.#balance = initialBalance;
+    }
+    deposit(amount) {
+        this.#balance += amount
+    }
+    withdraw(amount) {
+        if (this.#balance >= amount) {
+            this.#balance -= amount
+        } else {
+            console.log("You don't have enough money !");
+        }
+    }
+    getBalance() {
+        return `Your balance is ${this.#balance}`
+    }
+}
+
+const account1 = new BankAccount('123344566', 100);
+account1.deposit(50);
+account1.withdraw(175);
+
+console.log(account1.getBalance());
